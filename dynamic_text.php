@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Dynamic Text</title>
 </head>
 <body>
 
 <?php 
 
-$title = 'Myka Martinez\'s Site'
+$title = 'Myka Martinez\'s Site';
 
  ?>	
 
-<h1><?php echo $title ?></h1>
+<h1><?php echo $title; ?></h1>
 
 
 
