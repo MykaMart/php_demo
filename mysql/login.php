@@ -5,8 +5,14 @@
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		echo $username . "<br>";
-		echo $password;
+		$connected = mysqli_init('localhost:8888', 'root', '', 'loginapp' );
+
+		if($connected) {
+			echo "Database connected";
+		}else {
+			die("Database connection error");
+		}
+
 	}
 
 ?>
