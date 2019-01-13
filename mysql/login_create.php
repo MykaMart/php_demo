@@ -20,7 +20,7 @@
 		if (!$result) {
 			die("<br> Query Failed");
 		}else {
-			echo "Insertion successful";
+			echo "<br>Insertion successful";
 		}
 	}
 
