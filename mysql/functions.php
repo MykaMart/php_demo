@@ -25,6 +25,36 @@
 		}
 	}
 
+	function createUser($username, $password) {
+
+		global $connected;
+
+		$query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+
+		$result = mysqli_query($connected, $query);
+
+		if (!$result) {
+			die("<br> User Creation Failed");
+		}
+	}
+
+	function readUsers() {
+
+		global $connected;
+
+		$query = "SELECT * FROM users";
+
+		$result = mysqli_query($connected, $query);
+
+		if (!$result) {
+			die("<br> Read Failed");
+		}else {
+
+			return $result;
+
+		}
+	}
+
 	function updateUser($username, $password, $id) {
 
 		global $connected;

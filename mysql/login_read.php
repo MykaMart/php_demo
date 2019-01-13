@@ -1,23 +1,9 @@
 <?php
+	
+	include "db.php";
+	include "functions.php";
 
-	$connected = mysqli_connect('localhost', 'root', 'root', 'loginapp');
-
-	if($connected) {
-		echo "Database connected";
-	}else {
-		die("Database connection error");
-	}
-
-	$query = "SELECT * FROM users";
-
-	$result = mysqli_query($connected, $query);
-
-	if (!$result) {
-		die("<br> Query Failed");
-	}else {
-		echo "<br> Read successful";
-	}
-
+	$result = readUsers();
 ?>
 
 
