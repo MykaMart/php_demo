@@ -1,27 +1,15 @@
 <?php
 
+	include "db.php";
+	include "functions.php";
+
 	if(isset($_POST['submit'])) {
 		
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
-		$connected = mysqli_connect('localhost', 'root', 'root', 'loginapp' );
+		createUser($username, $password);
 
-		if($connected) {
-			echo "Database connected";
-		}else {
-			die("Database connection error");
-		}
-
-		$query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
-
-		$result = mysqli_query($connected, $query);
-
-		if (!$result) {
-			die("<br> Query Failed");
-		}else {
-			echo "<br>Insertion successful";
-		}
 	}
 
 ?>
