@@ -34,7 +34,20 @@
 		$result   = mysqli_query($connected, $query);
 
 		if(!$result) {
-			die("Query Failed<br>" . mysqli_error($connected));
+			die("Update Failed<br>" . mysqli_error($connected));
+		}
+	}
+
+	function deleteUser($id) {
+
+		global $connected;
+
+		$query    = "DELETE FROM users WHERE id = $id";
+
+		$result   = mysqli_query($connected, $query);
+
+		if(!$result) {
+			die("Delete Failed<br>" . mysqli_error($connected));
 		}
 	}
 	
