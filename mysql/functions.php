@@ -24,6 +24,19 @@
 			echo "<option value='$id'>$id</option>";
 		}
 	}
+
+	function updateUser($username, $password, $id) {
+
+		global $connected;
+
+		$query    = "UPDATE users SET username = '$username', password = '$password' WHERE id = $id";
+
+		$result   = mysqli_query($connected, $query);
+
+		if(!$result) {
+			die("Query Failed<br>" . mysqli_error($connected));
+		}
+	}
 	
 
 ?>
