@@ -29,6 +29,9 @@
 
 		global $connected;
 
+		$username = mysqli_real_escape_string($connected, $username);
+		$password = mysqli_real_escape_string($connected, $password);
+
 		$query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 
 		$result = mysqli_query($connected, $query);
@@ -58,6 +61,9 @@
 	function updateUser($username, $password, $id) {
 
 		global $connected;
+
+		$username = mysqli_real_escape_string($connected, $username);
+		$password = mysqli_real_escape_string($connected, $password);
 
 		$query    = "UPDATE users SET username = '$username', password = '$password' WHERE id = $id";
 
