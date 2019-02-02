@@ -3,7 +3,7 @@
 
 	$_SESSION["greeting"] = "Greetings program";
 
-	echo $_SESSION["greeting"]
+	echo $_SESSION["greeting"];
 ?>
 
 <!DOCTYPE html>
