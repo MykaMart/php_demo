@@ -5,11 +5,6 @@
 	$expiration	= time() + (60*60*24*365*2);
 
 	setcookie($name, $value, $expiration);
-
-	// $cookie = $_COOKIE;
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +16,20 @@
 <body>
 	
 
+<?php  
 
+	if(isset($_COOKIE["cookiename"])) {
+		
+		// $_COOKIE is an associative array off all the cookie, specifying the
+		// name of the cookie returns it's value
+		$name = $_COOKIE["cookiename"];
+		echo $name;
+
+	} else {
+		echo "Cookie not found";
+	}
+
+?>
 
 
 	
