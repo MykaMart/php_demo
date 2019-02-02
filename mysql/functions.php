@@ -1,10 +1,10 @@
 <?php
 
 	include "db.php";
+	include "saltgen.php";
 
 
-	function readAll() {
-
+	function readAll() { 
 		global $connected;
 			   $query  = "SELECT * FROM users";
 		$result = mysqli_query($connected, $query);
@@ -32,13 +32,19 @@
 		$username = mysqli_real_escape_string($connected, $username);
 		$password = mysqli_real_escape_string($connected, $password);
 
-		$query = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+		$format = "$2y$10$";
+		$salt = saltGen();
+
+		$hash = $format . $salt;
+		$password = crypt($password, $hash);
+
+		$query = "INSERT INTO users (username, password, salt) VALUES ('$username', '$password', '$salt')";
 
 		$result = mysqli_query($connected, $query);
 
 		if (!$result) {
 			die("<br> User Creation Failed");
-		}
+		} 
 	}
 
 	function readUsers() {
